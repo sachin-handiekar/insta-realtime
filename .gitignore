@@ -1,12 +1,43 @@
+### Eclipse ###
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
 *.class
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+target/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Eclipse Core
+.project
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# Locally stored "Eclipse launch configurations"
+*.launch
+ 
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# PDT-specific
+.buildpath
+
+### Intellij ###
+*.iml
+
+## Directory-based project format:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws
+
+# IntelliJ
+out/ 
+
+### OSX ###
+.DS_Store
