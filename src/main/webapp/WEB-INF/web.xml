@@ -4,4 +4,18 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+    
+    
+    <servlet>
+        <servlet-name>callback</servlet-name>
+        <servlet-class>org.jinstagram.examples.SubscriptionCallback</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>callback</servlet-name>
+        <url-pattern>/callback</url-pattern>
+    </servlet-mapping>
 </web-app>
+
+
+

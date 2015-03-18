@@ -1,36 +1,36 @@
 package org.jinstagram.examples;
 
 
-import java.util.logging.Logger;
-
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+import java.util.logging.Logger;
 
-import org.apache.commons.lang3.StringUtils;
-
-@ServerEndpoint("/echo")
-public class ReverseEchoWebSocketServerEndpoint {
+@ServerEndpoint("/tagSubscription")
+public class TagSubscriptionEndpoint {
 
     private final Logger logger = Logger.getLogger(this.getClass().getName());
 
+
     @OnOpen
     public void onConnectionOpen(Session session) {
-        logger.info("Connection opened ... " + session.getId());
+        logger.info("Connection open for " + session.getId());
+
+        SessionHandler.clients.add(session);
     }
 
     @OnMessage
-    public String onMessage(String message) {
-        if (StringUtils.isBlank(message)) {
-            return "Please send message";
+    public void onMessage(String message) {
+        if (message.equals("PING")) {
+            logger.info("PING Received!!!");
         }
-        return StringUtils.reverse(message);
     }
 
     @OnClose
     public void onConnectionClose(Session session) {
+        SessionHandler.clients.remove(session);
         logger.info("Connection close .... " + session.getId());
     }
 }
